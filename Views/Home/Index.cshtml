@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-6">Welcome To Our Store</h1>
+    <p>Start your Day from one Bites of JoyFull</p>
+    <ul>
+    @{
+       
+        var x = ViewBag.items;
+        foreach (var i in x)
+        {
+            if (i.rating > 5)
+            {
+            <div>
+                <h6>@i.nama</h6>
+                <div>
+                <img src=@i.foto width="200px">
+                </div>
+                <h6>Rating: @i.rating</h6>
+                <h6>Harga: Rp.@i.harga</h6>
+                <a href="/Product/Detail/@i.id">Detail</a>             
+            </div>
+            }
+        }
+        
+    }
+    </ul>
+</div>
