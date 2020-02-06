@@ -2,7 +2,7 @@
 
 namespace MVC.Migrations
 {
-    public partial class floor1 : Migration
+    public partial class data : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,8 +12,10 @@ namespace MVC.Migrations
                 {
                     id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    nama = table.Column<string>(nullable: true),
+                    harga = table.Column<int>(nullable: false),
                     jumlahItem = table.Column<int>(nullable: false),
-                    jumlah = table.Column<double>(nullable: false)
+                    jumlah = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -30,7 +32,7 @@ namespace MVC.Migrations
                     nama = table.Column<string>(nullable: true),
                     foto = table.Column<string>(nullable: true),
                     deskripsi = table.Column<string>(nullable: true),
-                    harga = table.Column<double>(nullable: false)
+                    harga = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

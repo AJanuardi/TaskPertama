@@ -4,3 +4,37 @@
 <h2>@ViewData["Title"]</h2>
 
 <p>Confirm your Cookie First</p>
+
+@model Cart
+
+@* @Html.TextBoxFor(m => m.jumlahItem , new { style = "width: 50px", @maxlength ="10"})  *@
+
+@{
+     @using (Html.BeginForm("Cart", "Home", FormMethod.Post))
+     {
+     var x = ViewBag.items;
+     var total = 0;
+     var y = 0;
+     var z = 0;
+        foreach (var i in x)
+        {
+            <h6>@Html.Label("Orders")</h6>
+            @Html.TextBox("jumlah")
+            <input type="submit" id="button" name="Update" />
+            var a = ViewBag.Name;
+            y = Convert.ToInt32(a);
+
+            if (y != 0)
+            {
+                var k = @i.harga;
+                z = k*y;
+                <h6>@i.nama</h6>
+                <h6>@i.harga</h6>
+                <h6>Jumlah Item: @y</h6>
+                <h6>Sub Total: @z</h6>
+                total += z;
+            }
+        }
+        <h6>Total Harga: @total</h6>
+     }
+}      

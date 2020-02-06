@@ -25,11 +25,17 @@ namespace MVC.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<double>("jumlah")
-                        .HasColumnType("float");
+                    b.Property<int>("harga")
+                        .HasColumnType("int");
+
+                    b.Property<int>("jumlah")
+                        .HasColumnType("int");
 
                     b.Property<int>("jumlahItem")
                         .HasColumnType("int");
+
+                    b.Property<string>("nama")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id");
 
@@ -49,8 +55,8 @@ namespace MVC.Migrations
                     b.Property<string>("foto")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("harga")
-                        .HasColumnType("float");
+                    b.Property<int>("harga")
+                        .HasColumnType("int");
 
                     b.Property<string>("nama")
                         .HasColumnType("nvarchar(max)");

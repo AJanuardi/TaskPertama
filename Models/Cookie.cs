@@ -9,6 +9,6 @@ namespace MVC.Models
         public string nama {get; set;}
         public string foto {get; set;}
         public string deskripsi {get; set;}
-        public double harga {get;set;}
+        public int harga {get;set;}
     }
 }

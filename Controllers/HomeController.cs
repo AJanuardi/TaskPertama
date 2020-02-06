@@ -33,13 +33,17 @@ namespace MVC.Controllers
         {
             var items = from i in _appDbContext.Cookies select i;
             ViewBag.items = items;
+            var add = from i in _appDbContext.Carts select i;
+            ViewBag.add = add;
             return View();
         }
-
-        public IActionResult Cart()
+        public IActionResult Cart(string jumlah)
         {
+            var items = from i in _appDbContext.Carts select i;
+            ViewBag.items = items;
+            ViewBag.Name = jumlah;
             return View();
-        }
+        }   
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

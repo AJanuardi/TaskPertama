@@ -7,7 +7,9 @@
 
 <div class="text-center">
 @{
+        
         var x = ViewBag.items;
+        var y = ViewBag.add;
         foreach (var i in x)
         {
             <div>
@@ -18,10 +20,10 @@
                 @i.deskripsi
                 <h6>Rating: @i.rating</h6>
                 <h6>Harga: Rp.@i.harga</h6>
-                <a href="Cart">Buy it Now</a>             
-            </div>
-            
+                <a href=@Url.Action("Cart","Home")>Buy it Now</a>             
+            </div> 
         }
+        
         
 }
 </div>
