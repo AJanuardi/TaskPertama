@@ -1,24 +1,67 @@
 ﻿@{
     ViewData["Title"] = "Our Valuable Product";
 }
-<h2>@ViewData["Title"]</h2>
+<div>
+<head>
+<style>
+div.gallery {
+  border: 1px solid #ccc;
+}
 
-<p>Many Product that You Can Buy</p>
+div.gallery:hover {
+  border: 1px solid #777;
+}
 
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.responsive {
+  padding: 0 6px;
+  float: left;
+  width: 24.99999%;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
 <div class="text-center">
+    <h1>@ViewData["Title"]</h1>
+    <p>Many Product that You Can Buy</p>
+</div>
+</head>
 @{
         var x = ViewBag.items;
         foreach (var i in x)
         {
-            <div>
-                <h6>@i.nama</h6>
-                <div>
-                <img src=@i.foto width="200px">
+            <div class="responsive">
+                <div class="gallery">
+                <a 
+                target="_blank" href=@Url.Action("Cart","Home")>
+                <img src="@i.foto" width="800" height="600">
+                </a>
+                <div class="desc">
+                    <h6>@i.nama</h6>
+                    <div class="text-right">
+                    <h6>Rp.@i.harga,-</h6>
+                    </div>
+                    <h6>Buy It Now</h6>
                 </div>
-                <h6>Rating: @i.rating</h6>
-                <h6>Harga: Rp.@i.harga</h6>
-                <a href="/Product/Detail/@i.id">Detail</a>            
             </div>
+        </div> 
         }   
 }
 </div>

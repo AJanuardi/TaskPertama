@@ -37,12 +37,18 @@ namespace MVC.Controllers
             ViewBag.add = add;
             return View();
         }
-        public IActionResult Cart(string jumlah)
+        public IActionResult Cart()
         {
             var items = from i in _appDbContext.Carts select i;
             ViewBag.items = items;
-            ViewBag.Name = jumlah;
             return View();
+        }
+        public IActionResult Delete(int id)
+        {
+            var Delete = _appDbContext.Carts.Find(id);
+            _appDbContext.Carts.Remove(Delete);
+            _appDbContext.SaveChanges();
+            return RedirectToAction("Cart","Home");
         }   
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
